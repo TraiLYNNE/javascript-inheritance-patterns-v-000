@@ -53,7 +53,7 @@ Rectangle.prototype.area = function() {
 // Square
 function Square(x, y, length) {
     // call parent class
-    Rectangle.call(this, x, y, length, length)
+    Rectangle.call(this, x, y, length, length);
     
     // set square properties
     this.length = length;
@@ -68,6 +68,8 @@ Square.square.constructor = Square;
 // instantiate objects
 var rect = new Rectangle(1, 0, 5, 3);
 var shape = new Shape(3, 2, 2);
+var sqr = new Square(1, 1, 3);
+
 
 // extend shape behavior
 Shape.prototype.move = function() {
@@ -90,3 +92,13 @@ for (var prop in rect) {
         console.log("rect." + prop + " = " + rect[prop]);
     }
 }
+
+// Make calls
+sqr.length; //defined in square
+sqr.width; //inherited from Rectangle
+sqr.sideOneLength; // inherited from Quad
+sqr.position(); // inherited from Shape
+sqr.move(2, 3); // inherited from Shape
+sqr.position(); 
+sqr.area(); // inherited from Rectangle
+sqr.perimeter(); //inherited from Quad
